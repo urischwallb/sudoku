@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>sudoku</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+    <div id="open">
+        <h1 >sudoku</h1>
+
+        <input class="btnLvl" id="username" type="text" placeholder="username">
+        <input class="btnLvl" id="password" type="password" placeholder="password">
+        <button class="btnLvl" onclick="userCheck()">Enter</button>
+
+    </div>
+    <div id="lvl">
+        <table id="tbllvl">
+            <tr>
+                <td id="">
+                    <h1 id="WelcomeUser">Welcome: </h1>
+                </td>
+            </tr>
+            <tr>
+                <td id="">
+                    <h1>Level difficulty</h1>
+                </td>
+            </tr>
+            <tr>
+
+
+                <td id="">
+                    <div id="lvlBlock">
+                        <img class='imgBtn1' onclick="PopupCenter()" src="info.svg">
+                        <img class='imgBtn1' onclick="userBoard('80') + timer()" src="lvl0.svg">
+                        <img class='imgBtn1' onclick="userBoard('55') + timer()" src="lvl1.svg">
+                        <img class='imgBtn1' onclick="userBoard('39') + timer()" src="lvl2.svg">
+                        <img class='imgBtn1' onclick="userBoard('20') + timer()" src="lvl3.svg">
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+    <div id="game">
+        <p id="gameH1">sudoku</p>
+        <p id="timer" style="font-size:30px"></p>
+        <table class="tblGame">
+            <tr class="tblGameLine">
+                <td class="tblGameBlock">
+                    <table class="tblIn">
+                        <tr>
+                            <td class="tblGameCell" id="t00"><input type="text" id="c00" oninput="onInputUser('0','0')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t01"><input type="text" id="c01" oninput="onInputUser('0','1')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t02"><input type="text" id="c02" oninput="onInputUser('0','2')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t10"><input type="text" id="c10" oninput="onInputUser('1','0')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t11"><input type="text" id="c11" oninput="onInputUser('1','1')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t12"><input type="text" id="c12" oninput="onInputUser('1','2')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t20"><input type="text" id="c20" oninput="onInputUser('2','0')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t21"><input type="text" id="c21" oninput="onInputUser('2','1')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t22"><input type="text" id="c22" oninput="onInputUser('2','2')"
+                                    class="cells"></td>
+                        </tr>
+                    </table>
+
+                </td>
+
+                <td class="tblGameBlock">
+                    <table class="tblIn">
+                        <tr>
+                            <td class="tblGameCell" id="t03"><input type="text" id="c03" oninput="onInputUser('0','3')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t04"><input type="text" id="c04" oninput="onInputUser('0','4')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t05"><input type="text" id="c05" oninput="onInputUser('0','5')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t13"><input type="text" id="c13" oninput="onInputUser('1','3')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t14"><input type="text" id="c14" oninput="onInputUser('1','4')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t15"><input type="text" id="c15" oninput="onInputUser('1','5')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t23"><input type="text" id="c23" oninput="onInputUser('2','3')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t24"><input type="text" id="c24" oninput="onInputUser('2','4')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t25"><input type="text" id="c25" oninput="onInputUser('2','5')"
+                                    class="cells"></td>
+                        </tr>
+                    </table>
+
+                </td>
+
+                <td class="tblGameBlock">
+                    <table class="tblIn">
+                        <tr>
+                            <td class="tblGameCell" id="t06"><input type="text" id="c06" oninput="onInputUser('0','6')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t07"><input type="text" id="c07" oninput="onInputUser('0','7')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t08"><input type="text" id="c08" oninput="onInputUser('0','8')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t16"><input type="text" id="c16" oninput="onInputUser('1','6')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t17"><input type="text" id="c17" oninput="onInputUser('1','7')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t18"><input type="text" id="c18" oninput="onInputUser('1','8')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t26"><input type="text" id="c26" oninput="onInputUser('2','6')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t27"><input type="text" id="c27" oninput="onInputUser('2','7')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t28"><input type="text" id="c28" oninput="onInputUser('2','8')"
+                                    class="cells"></td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <!--  -->
+            <tr class="tblGameLine">
+                <td class="tblGameBlock">
+                    <table class="tblIn">
+                        <tr>
+                            <td class="tblGameCell" id="t30"><input type="text" id="c30" oninput="onInputUser('3','0')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t31"><input type="text" id="c31" oninput="onInputUser('3','1')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t32"><input type="text" id="c32" oninput="onInputUser('3','2')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t40"><input type="text" id="c40" oninput="onInputUser('4','0')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t41"><input type="text" id="c41" oninput="onInputUser('4','1')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t42"><input type="text" id="c42" oninput="onInputUser('4','2')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t50"><input type="text" id="c50" oninput="onInputUser('5','0')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t51"><input type="text" id="c51" oninput="onInputUser('5','1')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t52"><input type="text" id="c52" oninput="onInputUser('5','2')"
+                                    class="cells"></td>
+                        </tr>
+                    </table>
+
+                </td>
+
+                <td class="tblGameBlock">
+                    <table class="tblIn">
+                        <tr>
+                            <td class="tblGameCell" id="t33"><input type="text" id="c33" oninput="onInputUser('3','3')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t34"><input type="text" id="c34" oninput="onInputUser('3','4')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t35"><input type="text" id="c35" oninput="onInputUser('3','5')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t43"><input type="text" id="c43" oninput="onInputUser('4','3')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t44"><input type="text" id="c44" oninput="onInputUser('4','4')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t45"><input type="text" id="c45" oninput="onInputUser('4','5')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t53"><input type="text" id="c53" oninput="onInputUser('5','3')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t54"><input type="text" id="c54" oninput="onInputUser('5','4')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t55"><input type="text" id="c55" oninput="onInputUser('5','5')"
+                                    class="cells"></td>
+                        </tr>
+                    </table>
+
+                </td>
+
+                <td class="tblGameBlock">
+                    <table class="tblIn">
+                        <tr>
+                            <td class="tblGameCell" id="t36"><input type="text" id="c36" oninput="onInputUser('3','6')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t37"><input type="text" id="c37" oninput="onInputUser('3','7')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t38"><input type="text" id="c38" oninput="onInputUser('3','8')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t46"><input type="text" id="c46" oninput="onInputUser('4','6')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t47"><input type="text" id="c47" oninput="onInputUser('4','7')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t48"><input type="text" id="c48" oninput="onInputUser('4','8')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t56"><input type="text" id="c56" oninput="onInputUser('5','6')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t57"><input type="text" id="c57" oninput="onInputUser('5','7')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t58"><input type="text" id="c58" oninput="onInputUser('5','8')"
+                                    class="cells"></td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <!--  -->
+            <tr class="tblGameLine">
+                <td class="tblGameBlock">
+                    <table class="tblIn">
+                        <tr>
+                            <td class="tblGameCell" id="t60"><input type="text" id="c60" oninput="onInputUser('6','0')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t61"><input type="text" id="c61" oninput="onInputUser('6','1')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t62"><input type="text" id="c62" oninput="onInputUser('6','2')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t70"><input type="text" id="c70" oninput="onInputUser('7','0')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t71"><input type="text" id="c71" oninput="onInputUser('7','1')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t72"><input type="text" id="c72" oninput="onInputUser('7','2')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t80"><input type="text" id="c80" oninput="onInputUser('8','0')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t81"><input type="text" id="c81" oninput="onInputUser('8','1')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t82"><input type="text" id="c82" oninput="onInputUser('8','2')"
+                                    class="cells"></td>
+                        </tr>
+                    </table>
+
+                </td>
+
+                <td class="tblGameBlock">
+                    <table class="tblIn">
+                        <tr>
+                            <td class="tblGameCell" id="t63"><input type="text" id="c63" oninput="onInputUser('6','3')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t64"><input type="text" id="c64" oninput="onInputUser('6','4')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t65"><input type="text" id="c65" oninput="onInputUser('6','5')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t73"><input type="text" id="c73" oninput="onInputUser('7','3')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t74"><input type="text" id="c74" oninput="onInputUser('7','4')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t75"><input type="text" id="c75" oninput="onInputUser('7','5')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t83"><input type="text" id="c83" oninput="onInputUser('8','3')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t84"><input type="text" id="c84" oninput="onInputUser('8','4')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t85"><input type="text" id="c85" oninput="onInputUser('8','5')"
+                                    class="cells"></td>
+                        </tr>
+                    </table>
+
+                </td>
+
+                <td class="tblGameBlock">
+                    <table class="tblIn">
+                        <tr>
+                            <td class="tblGameCell" id="t66"><input type="text" id="c66" oninput="onInputUser('6','6')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t67"><input type="text" id="c67" oninput="onInputUser('6','7')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t68"><input type="text" id="c68" oninput="onInputUser('6','8')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t76"><input type="text" id="c76" oninput="onInputUser('7','6')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t77"><input type="text" id="c77" oninput="onInputUser('7','7')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t78"><input type="text" id="c78" oninput="onInputUser('7','8')"
+                                    class="cells"></td>
+                        </tr>
+                        <tr>
+                            <td class="tblGameCell" id="t86"><input type="text" id="c86" oninput="onInputUser('8','6')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t87"><input type="text" id="c87" oninput="onInputUser('8','7')"
+                                    class="cells"></td>
+                            <td class="tblGameCell" id="t88"><input type="text" id="c88" oninput="onInputUser('8','8')"
+                                    class="cells"></td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+        <div id="imgGame">
+            <!-- <img class='imgBtn' onclick="alert('click back')" src="back.svg">extra if we have time -->
+            <img class='imgBtn' onclick="sudokuCheck()" src="finish.svg">
+            <img class='imgBtn' onclick="sudokuReset()" src="zero.svg">
+            <img class='imgBtn' onclick="sudokuHome()" src="home.svg">
+        </div>
+
+
+    </div>
+    <script src='script.js'></script>
+</body>
+
+</html>
